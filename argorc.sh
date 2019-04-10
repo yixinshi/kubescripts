@@ -2,7 +2,7 @@
 
 # This script include some common utils for argo.
 # Add the line into the .bashrc in your home dir.
-# curl https://raw.githubusercontent.com/yixinshi/kubescripts/master/argorc -Lo /tmp/argorc && source /tmp/argorc && rm -f /tmp/argorc
+# curl https://raw.githubusercontent.com/yixinshi/kubescripts/r0.01/argorc -Lo /tmp/argorc && source /tmp/argorc && rm -f /tmp/argorc
 
 
 # Print the last failed pod logs. Optionally you can supply the job name
