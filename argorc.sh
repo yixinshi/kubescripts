@@ -66,6 +66,6 @@ argopod () {
   if [[ ! -z $pod_name ]]; then
     kubectl logs -f $pod_name main
   else
-    echo -n "Specify pod please"
+    echo "Specify the pod name please."
   fi
 }
