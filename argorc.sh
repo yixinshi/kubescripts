@@ -48,3 +48,14 @@ argorun () {
     echo "no running job found..exit"
   fi
 }
+
+function argodelete10d() {
+  job_names=`argo list|grep -E "\ [0-9][0-9]+d\  "|tr -s " "|cut -f 1 -d" "`
+  if [[ ! -z $job_name ]]; then
+    if echo $job_names|xargs -n1 argo delete > /dev/null 2>&1; then
+      echo "Successfully delete argo jobs"
+    fi
+  else
+    echo "No job for last 10 days found."
+  fi
+}
