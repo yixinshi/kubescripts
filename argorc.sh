@@ -59,3 +59,13 @@ function argodelete10d() {
     echo "No job for last 10 days found."
   fi
 }
+
+# Print the logs of a pod.
+argopod () {
+  pod_name=$1
+  if [[ ! -z $pod_name ]]; then
+    kubectl logs -f $pod_name main
+  else
+    echo -n "Specify pod please"
+  fi
+}
