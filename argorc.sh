@@ -49,9 +49,10 @@ argorun () {
   fi
 }
 
+# Delete 10+ days older of jobs
 function argodelete10d() {
   job_names=`argo list|grep -E "\ [0-9][0-9]+d\  "|tr -s " "|cut -f 1 -d" "`
-  if [[ ! -z $job_name ]]; then
+  if [[ ! -z $job_names ]]; then
     if echo $job_names|xargs -n1 argo delete > /dev/null 2>&1; then
       echo "Successfully delete argo jobs"
     fi
@@ -68,4 +69,15 @@ argopod () {
   else
     echo "Specify the pod name please."
   fi
+}
+
+# TODO() support "--output wide"
+argolist () {
+  num=$1
+  shift
+  if [[ -z $num ]]; then
+    # List the first 10 jobs by default.
+    num=11
+  fi
+  argo list $@ | head -n $num
 }
