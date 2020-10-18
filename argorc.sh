@@ -49,7 +49,7 @@ argorun () {
   fi
 }
 
-# Delete 10+ days older of jobs
+# Delete 10+ days older of jobs.
 function argodelete10d() {
   job_names=`argo list|grep -E "\ [0-9][0-9]+d\  "|tr -s " "|cut -f 1 -d" "`
   if [[ ! -z $job_names ]]; then
