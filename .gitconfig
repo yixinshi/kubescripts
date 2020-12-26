@@ -28,6 +28,7 @@
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     wip = !git add --all && git ci -am "wip"
     amend = !git add --all && git ci --amend
+    timeout = config credential.helper ' cache --timeout=30000000'
     fake = !git commit --allow-empty -m "chore-fake-re-trigger-build"
     fix = "!f() {\
         orig=$(git rev-parse --abbrev-ref HEAD);\
